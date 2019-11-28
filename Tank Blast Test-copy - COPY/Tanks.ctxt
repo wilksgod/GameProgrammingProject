@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Tanks
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Tanks\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Tanks()
+comment2.params=position\ velocity\ acceleration
+comment2.target=Tanks(Point2D,\ Vector2D,\ Vector2D)
+comment3.params=
+comment3.target=void\ act()
+comment4.params=
+comment4.target=void\ collideWithWalls()
+numComments=5
