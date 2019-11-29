@@ -156,5 +156,10 @@ public class MazeWorld extends SimulationWorld
         P2NumberOfHealth p2NumberOfHealth = new P2NumberOfHealth(p2);
         addObject(p2NumberOfHealth,930,813);
         p2NumberOfHealth.setLocation(924,812);
+        WhitBlockForTime whitBlockForTime = new WhitBlockForTime();
+        addObject(whitBlockForTime,613,803);
+        whitBlockForTime.setLocation(622,824);
+        TimeElapsed timeElapsed = new TimeElapsed();
+        addObject(timeElapsed,618,815);
     }
 }

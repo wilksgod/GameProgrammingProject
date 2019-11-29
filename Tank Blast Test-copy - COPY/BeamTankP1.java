@@ -12,7 +12,7 @@ public class BeamTankP1 extends Player1
      * Act - do whatever the BeamTankP1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int MOVE_SPEED = 4;
+    private int MOVE_SPEED = 5;
     private boolean spaceDown;
     
     public void act() 
@@ -39,7 +39,9 @@ public class BeamTankP1 extends Player1
             Greenfoot.playSound("Beam Shot Sound.wav");
             this.setImage("BlueTankShoot.png");
             Beam beam = new Beam();
-            getSimulationWorld().addObject(beam, getX(), getY()); // add the shot to the world
+            int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            getSimulationWorld().addObject(beam, getX() + shootingOffsetX, getY() + shootingOffsetY); // add the shot to the world
             beam.setRotation(getRotation()); // set rotation of the shot
         }
         

@@ -50,7 +50,9 @@ public class Player2 extends Player
             Greenfoot.playSound("Tank Shot Sound.wav");
             this.setImage("TankP2Fire.png");
             CannonBall cannonBall = new CannonBall();
-            getSimulationWorld().addObject(cannonBall, getX(), getY()); // add the shot to the world
+            int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.5*getImage().getWidth()));
+            int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.5*getImage().getWidth()));
+            getSimulationWorld().addObject(cannonBall, getX() + shootingOffsetX, getY() + shootingOffsetY); // add the shot to the world
             cannonBall.setRotation(getRotation()); // set rotation of the shot
         }
         

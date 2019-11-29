@@ -74,25 +74,25 @@ public abstract class Player extends Tanks
     
     public void transform()
     {
-        Actor beamTank = getOneIntersectingObject(LaserBeam.class);
+        Actor laserBeam = getOneIntersectingObject(LaserBeam.class);
         BeamTankP1 beamTank1 = new BeamTankP1();
-        if (beamTank != null)
+        if (laserBeam != null)
         {
             getSimulationWorld().addObject(beamTank1, this.getX(), this.getY());
             getSimulationWorld().removeObject(this);
         }
         
-        Actor buffTank = getOneIntersectingObject(BuffUp.class);
+        Actor buffUp = getOneIntersectingObject(BuffUp.class);
         BuffTankP1 buffTank1 = new BuffTankP1();
-        if (buffTank != null)
+        if (buffUp != null)
         {
             getSimulationWorld().addObject(buffTank1, this.getX(), this.getY());
             getSimulationWorld().removeObject(this);
         }
         
-        Actor doubleCannonTank = getOneIntersectingObject(DoubleCannon.class);
+        Actor doubleCannon = getOneIntersectingObject(DoubleCannon.class);
         DoubleCannonTankP1 doubleCannonTank1 = new DoubleCannonTankP1();
-        if (doubleCannonTank != null)
+        if (doubleCannon != null)
         {
             getSimulationWorld().addObject(doubleCannonTank1, this.getX(), this.getY());
             getSimulationWorld().removeObject(this);

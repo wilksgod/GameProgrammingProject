@@ -41,7 +41,7 @@ public class Player1 extends Player
     public void act() 
     {
         super.act();
-        // p1Health = takeDamage(p1Health);
+        p1Health = takeDamage(p1Health);
         shoot();
         transform();
         gameOver();
@@ -57,8 +57,8 @@ public class Player1 extends Player
             Greenfoot.playSound("Tank Shot Sound.wav");
             this.setImage("TankP1Fire.png");
             CannonBall cannonBall = new CannonBall();
-            int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.5*getImage().getWidth()));
-            int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.5*getImage().getWidth()));
+            int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
             getSimulationWorld().addObject(cannonBall, getX() + shootingOffsetX, getY() + shootingOffsetY); // add the shot to the world
             cannonBall.setRotation(getRotation()); // set rotation of the shot
         }

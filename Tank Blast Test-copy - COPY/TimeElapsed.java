@@ -15,7 +15,7 @@ public class TimeElapsed extends Text
         SimulationWorld world = (SimulationWorld) getWorld();
         timeElapsed -= world.getTimeStepDuration();
         
-        if (timeElapsed > 110 && timeElapsed <= 120)
+        if (timeElapsed > 70 && timeElapsed <= 120)
         {
             setImage(new GreenfootImage("1:" + (int) (getTimeElapsed() - 60), 40, Color.RED, new Color(0,0,0,0)));
         }
@@ -27,7 +27,7 @@ public class TimeElapsed extends Text
         {
             setImage(new GreenfootImage("0:0" + (int) (getTimeElapsed()), 40, Color.RED, new Color(0,0,0,0)));
         }
-        else
+        else if (getTimeElapsed() < 60)
         {
             setImage(new GreenfootImage("0:" + (int) getTimeElapsed(), 40, Color.RED, new Color(0,0,0,0)));
         }
