@@ -24,22 +24,29 @@ public class BuffTankP2 extends Player2
         gameOver();
     }    
     
+    public int getMoveSpeed()
+    {
+        return 1;
+    }
+    
     public void shoot()
     {
-       if (!enterDown && Greenfoot.isKeyDown("space"))
+       if (!enterDown && Greenfoot.isKeyDown("enter"))
        {
            enterDown = true;
        
-           this.setImage("BlueTank1CannonFire.png");
+           this.setImage("RedTank1CannonFire.png");
            Greenfoot.playSound("Tank Shot Sound.wav");
            BuffTankCannonBall buffTankCannonBall = new BuffTankCannonBall();
-           getSimulationWorld().addObject(buffTankCannonBall, getX(), getY()); // add the shot to the world
+           int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+           int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+           getSimulationWorld().addObject(buffTankCannonBall, getX() + shootingOffsetX, getY() + shootingOffsetY); // add the shot to the world // add the shot to the world
            buffTankCannonBall.setRotation(getRotation()); // set rotation of the shot
         }
-       if (enterDown && !Greenfoot.isKeyDown("space"))
+       if (enterDown && !Greenfoot.isKeyDown("enter"))
         {
             enterDown = false;
-             this.setImage("BlueTank1Cannon.png");
+             this.setImage("RedTank1Cannon.png");
         }
     }
     

@@ -39,7 +39,9 @@ public class BeamTankP2 extends Player2
             Greenfoot.playSound("Beam Shot Sound.wav");
             this.setImage("RedTankShoot.png");
             Beam beam = new Beam();
-            getSimulationWorld().addObject(beam, getX(), getY()); // add the shot to the world
+            int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            getSimulationWorld().addObject(beam, getX() + shootingOffsetX, getY() + shootingOffsetY); // add the shot to the world
             beam.setRotation(getRotation()); // set rotation of the shot
         }
         

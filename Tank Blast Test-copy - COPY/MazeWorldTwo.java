@@ -16,7 +16,7 @@ public class MazeWorldTwo extends SimulationWorld
     public MazeWorldTwo()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super("Gameplay Song.wav", 1241, 629, new Point2D(0.0, 0.0), 16);
+        super("Gameplay Song.wav", 1241, 685, new Point2D(0.0, 0.0), 16);
         prepare();
     }
 
@@ -337,6 +337,18 @@ public class MazeWorldTwo extends SimulationWorld
         verticalWall43.setLocation(356,277);
         VerticalWall verticalWall44 = new VerticalWall();
         addObject(verticalWall44,356,277);
-        verticalWall43.setLocation(357,272);
+        verticalWall43.setLocation(357,272); //fasgasgag;
+        P1hp p1hp = new P1hp();
+        addObject(p1hp,251,664);
+        p1hp.setLocation(293,660);
+        P2hp p2hp = new P2hp();
+        addObject(p2hp,738,658);
+        p2hp.setLocation(885,663);
+        TimeElapsed timeElapsed = new TimeElapsed();
+        addObject(timeElapsed,615,664);
+        timeElapsed.setLocation(599,665);
+        timeElapsed.setLocation(594,665);
+        timeElapsed.setLocation(594,660);
+        timeElapsed.setLocation(586,661);
     }
 }

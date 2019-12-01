@@ -24,22 +24,30 @@ public class DoubleCannonTankP2 extends Player2
         gameOver();
     }    
     
+    public int getMoveSpeed()
+    {
+        return 1;
+    }
+    
     public void shoot()
     {
-        if (!enterDown && Greenfoot.isKeyDown("space"))
+       if (!enterDown && Greenfoot.isKeyDown("enter"))
        {
             enterDown = true;
         
-            this.setImage("BlueTank2CannonFire.png");
+            this.setImage("RedTank2CannonFire.png");
             Greenfoot.playSound("Tank Shot Sound.wav");
             DoubleCannonBall doubleCannonBall = new DoubleCannonBall();
-            getSimulationWorld().addObject(doubleCannonBall, getX(), getY()); // add the shot to the world
+            int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            getSimulationWorld().addObject(doubleCannonBall, getX() + shootingOffsetX, getY() + shootingOffsetY); // add the shot to the world
             doubleCannonBall.setRotation(getRotation()); // set rotation of the shot
        }
-       if (enterDown && !Greenfoot.isKeyDown("space"))
+       
+       if (enterDown && !Greenfoot.isKeyDown("enter"))
        {
             enterDown = false;
-            this.setImage("BlueTank2Cannon.png");
+            this.setImage("RedTank2Cannon.png");
        }
     }
     

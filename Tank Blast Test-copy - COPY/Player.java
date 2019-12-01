@@ -32,7 +32,7 @@ public abstract class Player extends Tanks
         
         if (beam != null)
         {
-            newHealth -= 3;
+            newHealth -= 2;
             getSimulationWorld().removeObject(beam);
         }
         
@@ -40,7 +40,7 @@ public abstract class Player extends Tanks
         
         if (doubleCannonBall != null)
         {
-            newHealth -= 3;
+            newHealth -= 4;
             getSimulationWorld().removeObject(doubleCannonBall);
         }
         
@@ -48,7 +48,7 @@ public abstract class Player extends Tanks
         
         if (buffTankCannonBall != null)
         {
-            newHealth -= 2;
+            newHealth -= 3;
             getSimulationWorld().removeObject(buffTankCannonBall);
         }
         

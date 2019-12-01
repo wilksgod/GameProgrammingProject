@@ -23,6 +23,11 @@ public class BuffTankP1 extends Player1
         gameOver();
     }    
     
+    public int getMoveSpeed()
+    {
+        return 1;
+    }
+    
     public void shoot()
     {
        if (!spaceDown && Greenfoot.isKeyDown("space"))
@@ -32,9 +37,12 @@ public class BuffTankP1 extends Player1
             this.setImage("BlueTank1CannonFire.png");
             Greenfoot.playSound("Tank Shot Sound.wav");
             BuffTankCannonBall buffTankCannonBall = new BuffTankCannonBall();
-            getSimulationWorld().addObject(buffTankCannonBall, getX(), getY()); // add the shot to the world
+            int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            getSimulationWorld().addObject(buffTankCannonBall, getX() + shootingOffsetX, getY() + shootingOffsetY); // add the shot to the world
             buffTankCannonBall.setRotation(getRotation()); // set rotation of the shot
         }
+        
        if (spaceDown && !Greenfoot.isKeyDown("space"))
         {
             spaceDown = false;

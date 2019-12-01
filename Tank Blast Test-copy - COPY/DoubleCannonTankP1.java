@@ -23,6 +23,11 @@ public class DoubleCannonTankP1 extends Player1
         gameOver();
     }    
     
+    public int getMoveSpeed()
+    {
+        return 1;
+    }
+    
     public void shoot()
     {
        if (Greenfoot.isKeyDown("space"))
@@ -31,7 +36,9 @@ public class DoubleCannonTankP1 extends Player1
             Greenfoot.playSound("Tank Shot Sound.wav");
             
             DoubleCannonBall doubleCannonBall = new DoubleCannonBall();
-            getSimulationWorld().addObject(doubleCannonBall, getX(), getY()); // add the shot to the world
+            int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            getSimulationWorld().addObject(doubleCannonBall, getX() + shootingOffsetX, getY() + shootingOffsetY); // add the shot to the world
             doubleCannonBall.setRotation(getRotation()); // set rotation of the shot
        }
        else 

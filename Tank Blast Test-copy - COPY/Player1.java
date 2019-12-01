@@ -99,18 +99,18 @@ public class Player1 extends Player
         {
             BuffTankP1 buffTank1 = new BuffTankP1();
             getSimulationWorld().addObject(buffTank1, this.getX(), this.getY());
-            getSimulationWorld().removeObject(buffTank1);
+            getSimulationWorld().removeObject(buffTank);
             getSimulationWorld().removeObject(this);
         }
-        /*
+        
         Actor doubleCannonTank = getOneIntersectingObject(DoubleCannon.class);
-        DoubleCannonTankP1 doubleCannonTank1 = new DoubleCannonTankP1();
         if (doubleCannonTank != null)
         {
+            DoubleCannonTankP1 doubleCannonTank1 = new DoubleCannonTankP1();
             getSimulationWorld().addObject(doubleCannonTank1, this.getX(), this.getY());
-            getSimulationWorld().removeObject(doubleCannonTank1);
+            getSimulationWorld().removeObject(doubleCannonTank);
             getSimulationWorld().removeObject(this);
-        }*/
+        }
     }
     
     public void gameOver()
@@ -142,8 +142,6 @@ public class Player1 extends Player
         {
             speed = 0;
         }
-        
-        System.out.println(speed);
         
         if (Greenfoot.isKeyDown("d"))
         {
