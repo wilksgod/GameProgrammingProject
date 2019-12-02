@@ -338,17 +338,29 @@ public class MazeWorldTwo extends SimulationWorld
         VerticalWall verticalWall44 = new VerticalWall();
         addObject(verticalWall44,356,277);
         verticalWall43.setLocation(357,272); //fasgasgag;
+        Player1 player1 = new Player1();
+        addObject(player1,68,300);
+        player1.setLocation(62,315);
+        Player2 player2 = new Player2();
+        addObject(player2,1119,401);
+        player2.setLocation(1116,404);
         P1hp p1hp = new P1hp();
         addObject(p1hp,251,664);
         p1hp.setLocation(293,660);
+        P1NumberOfHealth p1NumberOfHealth = new P1NumberOfHealth(player1);
+        addObject(p1NumberOfHealth,345,660);
         P2hp p2hp = new P2hp();
         addObject(p2hp,738,658);
-        p2hp.setLocation(885,663);
+        p2hp.setLocation(885,660);
+        P2NumberOfHealth p2NumberOfHealth = new P2NumberOfHealth(player2);
+        addObject(p2NumberOfHealth,937,660);
         TimeElapsed timeElapsed = new TimeElapsed();
         addObject(timeElapsed,615,664);
         timeElapsed.setLocation(599,665);
         timeElapsed.setLocation(594,665);
         timeElapsed.setLocation(594,660);
         timeElapsed.setLocation(586,661);
+        player2.setLocation(967,394);
+        player2.setLocation(967,389);
     }
 }
