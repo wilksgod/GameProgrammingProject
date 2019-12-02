@@ -43,7 +43,7 @@ public class StartMenu extends SimulationWorld
         if (Greenfoot.isKeyDown("space"))
         {
             Greenfoot.playSound("Click Sound.wav");
-            this.transitionToWorld(new MazeWorld());
+            this.transitionToWorld(new PlayerControls());
         }
     }
     
