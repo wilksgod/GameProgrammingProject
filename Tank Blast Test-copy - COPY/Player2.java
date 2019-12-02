@@ -14,11 +14,12 @@ public class Player2 extends Player
      */
     private int p2Health;
     private double timeUntilTransition = 1.0;
+    private int MOVE_SPEED = 2;
     private boolean enterDown;
     
-    public Player2()
+    public Player2(int health)
     {
-        p2Health = INITIAL_HEALTH;
+        p2Health = health;
     }
     
     public int getP2Health()
@@ -35,10 +36,16 @@ public class Player2 extends Player
     public void act() 
     {
         super.act();
-        shoot();
-        p2Health = takeDamage(p2Health);
-        gameOver();
-        controlTank();
+        try {
+            shoot();
+            p2Health = takeDamage(p2Health);
+            gameOver();
+            transform();
+            controlTank();
+        }
+        catch (Exception e)
+        {
+        }
     }
     
     public void shoot()
@@ -50,8 +57,8 @@ public class Player2 extends Player
             Greenfoot.playSound("Tank Shot Sound.wav");
             this.setImage("TankP2Fire.png");
             CannonBall cannonBall = new CannonBall();
-            int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.5*getImage().getWidth()));
-            int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.5*getImage().getWidth()));
+            int shootingOffsetX = (int) (Math.cos(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
+            int shootingOffsetY = (int) (Math.sin(Math.toRadians(getRotation())) * (0.6*getImage().getWidth()));
             getSimulationWorld().addObject(cannonBall, getX() + shootingOffsetX, getY() + shootingOffsetY); // add the shot to the world
             cannonBall.setRotation(getRotation()); // set rotation of the shot
         }
@@ -79,18 +86,16 @@ public class Player2 extends Player
     {   
         if (Greenfoot.isKeyDown("up"))
         {
-            speed = 1;
+            speed = MOVE_SPEED;
         }        
         else if (Greenfoot.isKeyDown("down"))
         {
-            speed = -1;
+            speed = -MOVE_SPEED;
         }
         else
         {
             speed = 0;
         }
-        
-        System.out.println(speed);
         
         if (Greenfoot.isKeyDown("right"))
         {
@@ -102,4 +107,36 @@ public class Player2 extends Player
             turn(-2);
         }
     }
+    
+    public void transform()
+    {
+        Actor laserBeam = getOneIntersectingObject(LaserBeam.class);
+        Actor buffTank = getOneIntersectingObject(BuffUp.class);
+
+        if (laserBeam != null)
+        {
+            BeamTankP1 beamTank1 = new BeamTankP1();
+            getSimulationWorld().addObject(beamTank1, this.getX(), this.getY());
+            getSimulationWorld().removeObject(laserBeam);
+            getSimulationWorld().removeObject(this);
+        }
+        
+        if (buffTank != null)
+        {
+            BuffTankP1 buffTank1 = new BuffTankP1();
+            getSimulationWorld().addObject(buffTank1, this.getX(), this.getY());
+            getSimulationWorld().removeObject(buffTank);
+            getSimulationWorld().removeObject(this);
+        }
+        
+        Actor doubleCannonTank = getOneIntersectingObject(DoubleCannon.class);
+        if (doubleCannonTank != null)
+        {
+            DoubleCannonTankP1 doubleCannonTank1 = new DoubleCannonTankP1();
+            getSimulationWorld().addObject(doubleCannonTank1, this.getX(), this.getY());
+            getSimulationWorld().removeObject(doubleCannonTank);
+            getSimulationWorld().removeObject(this);
+        }
+    }
+    
 }

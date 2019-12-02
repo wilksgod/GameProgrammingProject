@@ -25,7 +25,7 @@ public class EndScreenP2Win extends SimulationWorld
      */
     private void prepare()
     {
-        Player2 player2 = new Player2();
+        Player2 player2 = new Player2(Player.INITIAL_HEALTH);
         addObject(player2,693,496);
         player2.setLocation(695,504);
         BuffTankP2 buffTankP2 = new BuffTankP2();
@@ -62,7 +62,7 @@ public class EndScreenP2Win extends SimulationWorld
         addObject(beamTankP22,683,277);
         beamTankP22.setLocation(695,273);
         beamTankP22.setLocation(698,265);
-        Player2 player22 = new Player2();
+        Player2 player22 = new Player2(Player.INITIAL_HEALTH);
         addObject(player22,542,274);
         player22.setLocation(526,272);
         player22.setLocation(541,273);

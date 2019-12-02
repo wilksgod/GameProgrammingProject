@@ -140,9 +140,9 @@ public class MazeWorld extends SimulationWorld
         HorizontalWall horizontalWall14 = new HorizontalWall();
         addObject(horizontalWall14,52,381);
         horizontalWall14.setLocation(49,384);
-        Player1 p1 = new Player1();
+        Player1 p1 = new Player1(Player.INITIAL_HEALTH);
         addObject(p1, 275,423);
-        Player2 p2 = new Player2();
+        Player2 p2 = new Player2(Player.INITIAL_HEALTH);
         addObject(p2, 924,423);
         P1hp p1hp = new P1hp();
         addObject(p1hp,85,808);

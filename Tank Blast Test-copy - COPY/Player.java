@@ -72,31 +72,31 @@ public abstract class Player extends Tanks
         return newHealth;
     }
     
-    public void transform()
-    {
-        Actor laserBeam = getOneIntersectingObject(LaserBeam.class);
-        BeamTankP1 beamTank1 = new BeamTankP1();
-        if (laserBeam != null)
-        {
-            getSimulationWorld().addObject(beamTank1, this.getX(), this.getY());
-            getSimulationWorld().removeObject(this);
-        }
+    // public void transform()
+    // {
+        // Actor laserBeam = getOneIntersectingObject(LaserBeam.class);
+        // BeamTankP1 beamTank1 = new BeamTankP1();
+        // if (laserBeam != null)
+        // {
+            // getSimulationWorld().addObject(beamTank1, this.getX(), this.getY());
+            // getSimulationWorld().removeObject(this);
+        // }
         
-        Actor buffUp = getOneIntersectingObject(BuffUp.class);
-        BuffTankP1 buffTank1 = new BuffTankP1();
-        if (buffUp != null)
-        {
-            getSimulationWorld().addObject(buffTank1, this.getX(), this.getY());
-            getSimulationWorld().removeObject(this);
-        }
+        // Actor buffUp = getOneIntersectingObject(BuffUp.class);
+        // BuffTankP1 buffTank1 = new BuffTankP1();
+        // if (buffUp != null)
+        // {
+            // getSimulationWorld().addObject(buffTank1, this.getX(), this.getY());
+            // getSimulationWorld().removeObject(this);
+        // }
         
-        Actor doubleCannon = getOneIntersectingObject(DoubleCannon.class);
-        DoubleCannonTankP1 doubleCannonTank1 = new DoubleCannonTankP1();
-        if (doubleCannon != null)
-        {
-            getSimulationWorld().addObject(doubleCannonTank1, this.getX(), this.getY());
-            getSimulationWorld().removeObject(this);
-        }
-    }
+        // Actor doubleCannon = getOneIntersectingObject(DoubleCannon.class);
+        // DoubleCannonTankP1 doubleCannonTank1 = new DoubleCannonTankP1();
+        // if (doubleCannon != null)
+        // {
+            // getSimulationWorld().addObject(doubleCannonTank1, this.getX(), this.getY());
+            // getSimulationWorld().removeObject(this);
+        // }
+    // }
 
 }

@@ -338,10 +338,10 @@ public class MazeWorldTwo extends SimulationWorld
         VerticalWall verticalWall44 = new VerticalWall();
         addObject(verticalWall44,356,277);
         verticalWall43.setLocation(357,272); //fasgasgag;
-        Player1 player1 = new Player1();
+        Player1 player1 = new Player1(Player.INITIAL_HEALTH);
         addObject(player1,68,300);
         player1.setLocation(62,315);
-        Player2 player2 = new Player2();
+        Player2 player2 = new Player2(Player.INITIAL_HEALTH);
         addObject(player2,1119,401);
         player2.setLocation(1116,404);
         P1hp p1hp = new P1hp();

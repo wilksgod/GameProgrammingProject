@@ -25,7 +25,7 @@ public class EndScreenP1Win extends SimulationWorld
      */
     private void prepare()
     {
-        Player1 player1 = new Player1();
+        Player1 player1 = new Player1(Player.INITIAL_HEALTH);
         addObject(player1,614,517);
         BeamTankP1 beamTankP1 = new BeamTankP1();
         addObject(beamTankP1,506,516);
@@ -57,7 +57,7 @@ public class EndScreenP1Win extends SimulationWorld
         addObject(beamTankP12,703,251);
         beamTankP12.setLocation(702,250);
         beamTankP12.setLocation(702,255);
-        Player1 player12 = new Player1();
+        Player1 player12 = new Player1(Player.INITIAL_HEALTH);
         addObject(player12,513,257);
         player12.setLocation(531,260);
         player12.setLocation(528,260);

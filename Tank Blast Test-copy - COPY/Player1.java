@@ -21,11 +21,11 @@ public class Player1 extends Player
     protected double durationOfProjectile = 3.0;
     private boolean spaceDown;
     
-    public Player1()
+    public Player1(int health)
     {
-        p1Health = INITIAL_HEALTH;
         timeUntilTransition = 3;
         duration = 12;
+        p1Health = health;
     }
     
     public int getMoveSpeed()
@@ -41,11 +41,28 @@ public class Player1 extends Player
     public void act() 
     {
         super.act();
-        p1Health = takeDamage(p1Health);
-        shoot();
-        transform();
-        gameOver();
-        controlTank();
+        try
+        {
+        
+            p1Health = takeDamage(p1Health);
+            shoot();
+            transform();
+            gameOver();
+            controlTank();
+        }
+        catch(Exception e)
+        {
+        }
+        
+        /*
+        try
+        {
+           // put code throwing exceptions here...
+        }
+        catch(Exception e)
+        {
+        }        
+        */
     }
     
     public void shoot()
@@ -73,9 +90,10 @@ public class Player1 extends Player
     public void revertBack()
     {
         duration-= getSimulationWorld().getTimeStepDuration();
-        Player1 p1 = new Player1();
+        int oldHealth = p1Health;
         if (duration < 0)
         {
+            Player1 p1 = new Player1(oldHealth);
             getWorld().addObject(p1, this.getX(), this.getY());
             getSimulationWorld().removeObject(this);
             Greenfoot.playSound("Poof.wav");
@@ -85,7 +103,6 @@ public class Player1 extends Player
     public void transform()
     {
         Actor laserBeam = getOneIntersectingObject(LaserBeam.class);
-        Actor buffTank = getOneIntersectingObject(BuffUp.class);
 
         if (laserBeam != null)
         {
@@ -95,6 +112,7 @@ public class Player1 extends Player
             getSimulationWorld().removeObject(this);
         }
         
+        Actor buffTank = getOneIntersectingObject(BuffUp.class);
         if (buffTank != null)
         {
             BuffTankP1 buffTank1 = new BuffTankP1();

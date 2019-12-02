@@ -7,6 +7,4 @@ comment2.params=
 comment2.target=void\ act()
 comment3.params=health
 comment3.target=int\ takeDamage(int)
-comment4.params=
-comment4.target=void\ transform()
-numComments=5
+numComments=4

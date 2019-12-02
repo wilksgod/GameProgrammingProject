@@ -53,9 +53,10 @@ public class BuffTankP2 extends Player2
      public void revertBack()
     {
         duration--;
-        Player2 p2 = new Player2();
+        int oldHealth = p2Health;
         if (duration == 0)
         {
+            Player2 p2 = new Player2(oldHealth);
             getWorld().addObject(p2, this.getX(), this.getY());
             getSimulationWorld().removeObject(this);
             Greenfoot.playSound("Poof.wav");
