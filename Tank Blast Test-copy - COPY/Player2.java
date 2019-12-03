@@ -13,13 +13,17 @@ public class Player2 extends Player
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     protected int p2Health;
-    private double timeUntilTransition = 1.0;
-    private int MOVE_SPEED = 2;
+    protected double duration;
+    private double timeUntilTransition;
+    private int MOVE_SPEED;
     private boolean enterDown;
     
     public Player2(int health)
     {
         p2Health = health;
+        duration = 20.0;
+        timeUntilTransition = 3.0;
+        MOVE_SPEED = 2;
     }
     
     public int getP2Health()
@@ -42,6 +46,7 @@ public class Player2 extends Player
             gameOver();
             transform();
             controlTank();
+            revertBack();
         }
         catch (Exception e)
         {
@@ -70,11 +75,24 @@ public class Player2 extends Player
         }
     }
     
+    public void revertBack()
+    {
+        duration -= getSimulationWorld().getTimeStepDuration();
+        int oldHealth = p2Health;
+        if (duration < 0)
+        {
+            Player2 p2 = new Player2(oldHealth);
+            getWorld().addObject(p2, this.getX(), this.getY());
+            getSimulationWorld().removeObject(this);
+            Greenfoot.playSound("Poof.wav");
+        }
+    }
+    
     public void gameOver()
     {
         if (getP2Health() <= 0)
         {
-            timeUntilTransition -= getSimulationWorld().getTimeStepDuration();
+            //timeUntilTransition -= getSimulationWorld().getTimeStepDuration();
             if (timeUntilTransition < 0)
             {
                 getSimulationWorld().transitionToWorld(new EndScreenP1Win());

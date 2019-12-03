@@ -23,11 +23,17 @@ public class BeamTankP1 extends Player1
     public void act() 
     {
         super.act();
-        shoot();
-        revertBack();
-        move(MOVE_SPEED);
-        /*takeDamage();*/
-        gameOver();
+        try
+        {
+           shoot();
+           revertBack();
+           /*takeDamage();*/
+           gameOver();
+        }
+        catch(Exception e)
+        {
+        }  
+        
     }    
     
     public int getMoveSpeed()

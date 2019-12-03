@@ -17,15 +17,16 @@ public class Player1 extends Player
     protected int p1Health;
     protected double duration;
     private double timeUntilTransition; 
-    private int MOVE_SPEED = 2;
+    private int MOVE_SPEED;
     protected double durationOfProjectile = 3.0;
     private boolean spaceDown;
     
     public Player1(int health)
     {
         timeUntilTransition = 3;
-        duration = 12;
+        duration = 10.0;
         p1Health = health;
+        MOVE_SPEED = 2;
     }
     
     public int getMoveSpeed()
@@ -89,7 +90,7 @@ public class Player1 extends Player
     
     public void revertBack()
     {
-        duration-= getSimulationWorld().getTimeStepDuration();
+        duration -= getSimulationWorld().getTimeStepDuration();
         int oldHealth = p1Health;
         if (duration < 0)
         {
@@ -134,15 +135,10 @@ public class Player1 extends Player
     
     public void gameOver()
     {
-        if (p1Health <= 0)
-        {
-            timeUntilTransition -= getSimulationWorld().getTimeStepDuration();
-            
             if (p1Health <= 0)
             {
                 getSimulationWorld().transitionToWorld(new EndScreenP2Win());
             }
-        }
     }
     
     public void controlTank()

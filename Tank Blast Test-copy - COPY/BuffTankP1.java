@@ -22,10 +22,17 @@ public class BuffTankP1 extends Player1
     public void act() 
     {
         super.act();
-        shoot();
-        revertBack();
-        /*takeDamage();*/
-        gameOver();
+        
+        try
+        {
+           shoot();
+           revertBack();
+           /*takeDamage();*/
+           gameOver();
+        }
+        catch(Exception e)
+        {
+        }
     }    
     
     public int getMoveSpeed()

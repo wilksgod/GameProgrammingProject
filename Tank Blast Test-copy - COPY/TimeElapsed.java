@@ -35,6 +35,7 @@ public class TimeElapsed extends Text
         if (timeElapsed < 0)
         {
             getSimulationWorld().transitionToWorld(new SuddenDeathWorld());
+            Greenfoot.playSound("Sudden Death.wav");
         }
    }    
     

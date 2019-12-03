@@ -26,7 +26,7 @@ public abstract class Player extends Tanks
     }
     
     public int takeDamage(int health)
-    {
+    {   
         Actor beam = getOneIntersectingObject(Beam.class);
         int newHealth = health;
         

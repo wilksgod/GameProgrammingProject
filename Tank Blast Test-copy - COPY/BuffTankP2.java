@@ -12,8 +12,8 @@ public class BuffTankP2 extends Player2
      * Act - do whatever the BuffTankP2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int duration = 12;
     private boolean enterDown;
+    private int MOVE_SPEED = 1;
     
     public BuffTankP2(int health)
     {
@@ -23,10 +23,16 @@ public class BuffTankP2 extends Player2
     public void act() 
     {
         super.act();
-        shoot();
-        /*revertBack();*/
-        /*takeDamage();*/
-        gameOver();
+        try
+        {
+           shoot();
+           revertBack();
+           /*takeDamage();*/
+           gameOver();
+        }
+        catch(Exception e)
+        {
+        }
     }    
     
     public int getMoveSpeed()
@@ -52,19 +58,6 @@ public class BuffTankP2 extends Player2
         {
             enterDown = false;
              this.setImage("RedTank1Cannon.png");
-        }
-    }
-    
-     public void revertBack()
-    {
-        duration--;
-        int oldHealth = p2Health;
-        if (duration == 0)
-        {
-            Player2 p2 = new Player2(oldHealth);
-            getWorld().addObject(p2, this.getX(), this.getY());
-            getSimulationWorld().removeObject(this);
-            Greenfoot.playSound("Poof.wav");
         }
     }
     

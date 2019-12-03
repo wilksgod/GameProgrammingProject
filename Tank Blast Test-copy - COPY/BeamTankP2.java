@@ -12,8 +12,8 @@ public class BeamTankP2 extends Player2
      * Act - do whatever the BeamTankP2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int duration = 12;
     private boolean enterDown;
+    private int MOVE_SPEED = 5;
     
     public BeamTankP2(int health)
     {
@@ -23,11 +23,17 @@ public class BeamTankP2 extends Player2
     public void act() 
     {
         super.act();
-        shoot();
-        takeDamage(getP2Health());
-        /*revertBack();*/
-        /*takeDamage();*/
-        gameOver();
+        try
+        {
+           shoot();
+           revertBack();
+           move(MOVE_SPEED);
+           /*takeDamage();*/
+           gameOver();
+        }
+        catch(Exception e)
+        {
+        }
     }    
     
     public int getMoveSpeed()
@@ -55,19 +61,6 @@ public class BeamTankP2 extends Player2
         {
             enterDown = false;
             this.setImage("RedTank.png");
-        }
-    }
-    
-     public void revertBack()
-    {
-        duration--;
-        int oldHealth = p2Health;
-        if (duration == 0)
-        {
-            Player2 p2 = new Player2(oldHealth);
-            getWorld().addObject(p2, this.getX(), this.getY());
-            getSimulationWorld().removeObject(this);
-            Greenfoot.playSound("Poof.wav");
         }
     }
     
