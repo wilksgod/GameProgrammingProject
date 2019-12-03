@@ -2,8 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class MazeWorld here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class MazeWorld extends SimulationWorld
@@ -11,7 +11,7 @@ public class MazeWorld extends SimulationWorld
 
     /**
      * Constructor for objects of class MazeWorld.
-     * 
+     *
      */
     public MazeWorld()
     {
@@ -161,5 +161,11 @@ public class MazeWorld extends SimulationWorld
         whitBlockForTime.setLocation(622,824);
         TimeElapsed timeElapsed = new TimeElapsed();
         addObject(timeElapsed,618,815);
+        BuffUp buff = new BuffUp();
+        addObject(buff,getRandomNumber(10, 1239), getRandomNumber(1, 600));
+        DoubleCannon doubleCannon = new DoubleCannon();
+        addObject(doubleCannon,getRandomNumber(10, 1239), getRandomNumber(1, 600));
+        LaserBeam laser = new LaserBeam();
+        addObject(laser,getRandomNumber(10, 1239), getRandomNumber(1, 600));
     }
 }
