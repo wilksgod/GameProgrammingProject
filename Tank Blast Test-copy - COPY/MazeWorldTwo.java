@@ -2,8 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class MazeWorldTwo here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class MazeWorldTwo extends SimulationWorld
@@ -11,10 +11,10 @@ public class MazeWorldTwo extends SimulationWorld
 
     /**
      * Constructor for objects of class MazeWorldTwo.
-     * 
+     *
      */
     public MazeWorldTwo()
-    {    
+    {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super("Gameplay Song.wav", 1241, 685, new Point2D(0.0, 0.0), 16);
         prepare();
@@ -362,5 +362,11 @@ public class MazeWorldTwo extends SimulationWorld
         timeElapsed.setLocation(586,661);
         player2.setLocation(967,394);
         player2.setLocation(967,389);
+        BuffUp buff = new BuffUp();
+        addObject(buff,getRandomNumber(10, 1239), getRandomNumber(1, 600));
+        DoubleCannon doubleCannon = new DoubleCannon();
+        addObject(doubleCannon,getRandomNumber(10, 1239), getRandomNumber(1, 600));
+        LaserBeam laser = new LaserBeam();
+        addObject(laser,getRandomNumber(10, 1239), getRandomNumber(1, 600));
     }
 }
