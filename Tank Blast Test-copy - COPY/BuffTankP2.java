@@ -15,6 +15,11 @@ public class BuffTankP2 extends Player2
     private int duration = 12;
     private boolean enterDown;
     
+    public BuffTankP2(int health)
+    {
+        super(health);
+    }
+    
     public void act() 
     {
         super.act();

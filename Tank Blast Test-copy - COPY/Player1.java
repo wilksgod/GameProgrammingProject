@@ -102,42 +102,43 @@ public class Player1 extends Player
     
     public void transform()
     {
+        int oldHealth = p1Health;
+        
         Actor laserBeam = getOneIntersectingObject(LaserBeam.class);
-
         if (laserBeam != null)
         {
-            BeamTankP1 beamTank1 = new BeamTankP1();
+            BeamTankP1 beamTank1 = new BeamTankP1(oldHealth);
             getSimulationWorld().addObject(beamTank1, this.getX(), this.getY());
             getSimulationWorld().removeObject(laserBeam);
             getSimulationWorld().removeObject(this);
         }
         
-        Actor buffTank = getOneIntersectingObject(BuffUp.class);
-        if (buffTank != null)
+        Actor buffUp = getOneIntersectingObject(BuffUp.class);
+        if (buffUp != null)
         {
-            BuffTankP1 buffTank1 = new BuffTankP1();
+            BuffTankP1 buffTank1 = new BuffTankP1(oldHealth);
             getSimulationWorld().addObject(buffTank1, this.getX(), this.getY());
-            getSimulationWorld().removeObject(buffTank);
+            getSimulationWorld().removeObject(buffUp);
             getSimulationWorld().removeObject(this);
         }
         
-        Actor doubleCannonTank = getOneIntersectingObject(DoubleCannon.class);
-        if (doubleCannonTank != null)
+        Actor doubleCannon = getOneIntersectingObject(DoubleCannon.class);
+        if (doubleCannon != null)
         {
-            DoubleCannonTankP1 doubleCannonTank1 = new DoubleCannonTankP1();
+            DoubleCannonTankP1 doubleCannonTank1 = new DoubleCannonTankP1(oldHealth);
             getSimulationWorld().addObject(doubleCannonTank1, this.getX(), this.getY());
-            getSimulationWorld().removeObject(doubleCannonTank);
+            getSimulationWorld().removeObject(doubleCannon);
             getSimulationWorld().removeObject(this);
         }
     }
     
     public void gameOver()
     {
-        if (getP1Health() <= 0)
+        if (p1Health <= 0)
         {
             timeUntilTransition -= getSimulationWorld().getTimeStepDuration();
             
-            if (timeUntilTransition < 0)
+            if (p1Health <= 0)
             {
                 getSimulationWorld().transitionToWorld(new EndScreenP2Win());
             }

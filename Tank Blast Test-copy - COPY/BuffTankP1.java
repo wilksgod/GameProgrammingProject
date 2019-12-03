@@ -14,6 +14,11 @@ public class BuffTankP1 extends Player1
      */
     private boolean spaceDown;
     
+    public BuffTankP1(int health)
+    {
+        super(health);
+    }
+    
     public void act() 
     {
         super.act();

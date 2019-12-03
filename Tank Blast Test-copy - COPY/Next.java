@@ -18,6 +18,7 @@ public class Next extends Text
         
         if (Greenfoot.mouseClicked(this))
         {
+            Greenfoot.playSound("Click Sound.wav");
             getSimulationWorld().transitionToWorld(new GameRules());
         }
     }    

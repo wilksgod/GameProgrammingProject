@@ -27,6 +27,7 @@ public class GameRules extends SimulationWorld
         
         if (time < 0)
         {
+            Greenfoot.playSound("Click Sound.wav");
             transitionToWorld(new ChooseMap());
         }
     }

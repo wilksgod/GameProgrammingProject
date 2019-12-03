@@ -14,6 +14,12 @@ public class DoubleCannonTankP1 extends Player1
      */
     private boolean spaceDown;
     
+    public DoubleCannonTankP1(int health)
+    {
+        super(health);
+    }
+    
+    
     public void act() 
     {
         super.act();

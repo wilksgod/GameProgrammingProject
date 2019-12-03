@@ -15,10 +15,15 @@ public class SuddenDeathWorld extends SimulationWorld
      */
     public SuddenDeathWorld()
     {
-        super("muzon.mp3", 1242, 629, new Point2D(0.0, 0.0), 16);
+        super("muzon.mp3", 1242, 690, new Point2D(0.0, 0.0), 16);
         prepare();
     }
 
+    public void act()
+    {
+        super.act();
+    }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -196,5 +201,22 @@ public class SuddenDeathWorld extends SimulationWorld
         VerticalWall verticalWall32 = new VerticalWall();
         addObject(verticalWall32,612,118);
         verticalWall32.setLocation(613,119);
+        
+        Player1 p1 = new Player1(1);
+        addObject(p1, 189,300);
+        Player2 p2 = new Player2(1);
+        addObject(p2, 1026,300);
+        p1.setLocation(189,300);
+        p2.setLocation(1026,300);
+        P1hp p1hp = new P1hp();
+        addObject(p1hp,269,664);
+        p1hp.setLocation(319,659);
+        P1NumberOfHealth p1NumberOfHealth = new P1NumberOfHealth(p1);
+        addObject(p1NumberOfHealth,363,659);
+        P2hp p2hp = new P2hp();
+        addObject(p2hp,896,663);
+        p2hp.setLocation(901,657);
+        P2NumberOfHealth p2NumberOfHealth = new P2NumberOfHealth(p2);
+        addObject(p2NumberOfHealth,945,657);
     }
 }

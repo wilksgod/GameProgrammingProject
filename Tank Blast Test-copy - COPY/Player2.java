@@ -12,7 +12,7 @@ public class Player2 extends Player
      * Act - do whatever the Player2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int p2Health;
+    protected int p2Health;
     private double timeUntilTransition = 1.0;
     private int MOVE_SPEED = 2;
     private boolean enterDown;
@@ -110,31 +110,32 @@ public class Player2 extends Player
     
     public void transform()
     {
+        int oldHealth = p2Health;
+        
         Actor laserBeam = getOneIntersectingObject(LaserBeam.class);
-        Actor buffTank = getOneIntersectingObject(BuffUp.class);
-
         if (laserBeam != null)
         {
-            BeamTankP1 beamTank1 = new BeamTankP1();
-            getSimulationWorld().addObject(beamTank1, this.getX(), this.getY());
+            BeamTankP2 beamTank2 = new BeamTankP2(oldHealth);
+            getSimulationWorld().addObject(beamTank2, this.getX(), this.getY());
             getSimulationWorld().removeObject(laserBeam);
             getSimulationWorld().removeObject(this);
         }
         
-        if (buffTank != null)
+        Actor buffUp = getOneIntersectingObject(BuffUp.class);
+        if (buffUp != null)
         {
-            BuffTankP1 buffTank1 = new BuffTankP1();
-            getSimulationWorld().addObject(buffTank1, this.getX(), this.getY());
-            getSimulationWorld().removeObject(buffTank);
+            BuffTankP2 buffTank2 = new BuffTankP2(oldHealth);
+            getSimulationWorld().addObject(buffTank2, this.getX(), this.getY());
+            getSimulationWorld().removeObject(buffUp);
             getSimulationWorld().removeObject(this);
         }
         
-        Actor doubleCannonTank = getOneIntersectingObject(DoubleCannon.class);
-        if (doubleCannonTank != null)
+        Actor doubleCannon = getOneIntersectingObject(DoubleCannon.class);
+        if (doubleCannon != null)
         {
-            DoubleCannonTankP1 doubleCannonTank1 = new DoubleCannonTankP1();
-            getSimulationWorld().addObject(doubleCannonTank1, this.getX(), this.getY());
-            getSimulationWorld().removeObject(doubleCannonTank);
+            DoubleCannonTankP2 doubleCannonTank2 = new DoubleCannonTankP2(oldHealth);
+            getSimulationWorld().addObject(doubleCannonTank2, this.getX(), this.getY());
+            getSimulationWorld().removeObject(doubleCannon);
             getSimulationWorld().removeObject(this);
         }
     }

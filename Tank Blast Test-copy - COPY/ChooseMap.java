@@ -20,14 +20,18 @@ public class ChooseMap extends SimulationWorld
     
     public void act()
     {
+        super.act();
+        
         if (Greenfoot.isKeyDown("1"))
         {
-            transitionToWorld(new MazeWorld());
+            Greenfoot.playSound("Click Sound.wav");
+            this.transitionToWorld(new MazeWorld());
         }
         
         if (Greenfoot.isKeyDown("2"))
         {
-            transitionToWorld(new MazeWorldTwo());
+            Greenfoot.playSound("Click Sound.wav");
+            this.transitionToWorld(new MazeWorldTwo());
         }
     }
 }

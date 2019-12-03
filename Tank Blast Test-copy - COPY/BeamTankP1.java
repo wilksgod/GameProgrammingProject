@@ -15,6 +15,11 @@ public class BeamTankP1 extends Player1
     private int MOVE_SPEED = 5;
     private boolean spaceDown;
     
+    public BeamTankP1(int health)
+    {
+        super(health);
+    }
+    
     public void act() 
     {
         super.act();

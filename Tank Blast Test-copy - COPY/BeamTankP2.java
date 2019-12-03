@@ -14,6 +14,12 @@ public class BeamTankP2 extends Player2
      */
     private int duration = 12;
     private boolean enterDown;
+    
+    public BeamTankP2(int health)
+    {
+        super(health);
+    }
+    
     public void act() 
     {
         super.act();
