@@ -21,9 +21,10 @@ public class Player2 extends Player
     public Player2(int health)
     {
         p2Health = health;
-        duration = 20.0;
+        duration = 26.0;
         timeUntilTransition = 2.0;
         MOVE_SPEED = 2;
+        this.setRotation(180);
     }
     
     public int getP2Health()

@@ -342,7 +342,7 @@ public class MazeWorldTwo extends SimulationWorld
         addObject(player1,68,300);
         player1.setLocation(62,315);
         Player2 player2 = new Player2(Player.INITIAL_HEALTH);
-        addObject(player2,1119,401);
+        addObject(player2,967,389);
         player2.setLocation(1116,404);
         P1hp p1hp = new P1hp();
         addObject(p1hp,251,664);
@@ -360,7 +360,7 @@ public class MazeWorldTwo extends SimulationWorld
         timeElapsed.setLocation(594,665);
         timeElapsed.setLocation(594,660);
         timeElapsed.setLocation(586,661);
-        player2.setLocation(967,394);
+        player2.setLocation(967,389);
         player2.setLocation(967,389);
         BuffUp buff = new BuffUp();
         addObject(buff,getRandomNumber(10, 1239), getRandomNumber(1, 600));

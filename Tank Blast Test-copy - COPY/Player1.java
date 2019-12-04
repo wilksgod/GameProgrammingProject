@@ -24,7 +24,7 @@ public class Player1 extends Player
     public Player1(int health)
     {
         timeUntilTransition = 2;
-        duration = 10.0;
+        duration = 13.0;
         p1Health = health;
         MOVE_SPEED = 2;
     }

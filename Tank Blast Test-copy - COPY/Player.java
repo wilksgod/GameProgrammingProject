@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Player extends Tanks
 {
-    public final static int INITIAL_HEALTH = 20;
+    public final static int INITIAL_HEALTH = 25;
     protected int speed = 0;
     
     public abstract int getMoveSpeed();
@@ -69,6 +69,14 @@ public abstract class Player extends Tanks
             World myWorld = getWorld();
             myWorld.addObject(explosion, this.getX(), this.getY());
             getSimulationWorld().removeObject(bomb);
+        }
+        
+        Actor fireBall = getOneIntersectingObject(FireBall.class);
+        
+        if (fireBall != null)
+        {
+            newHealth -= 3;
+            getSimulationWorld().removeObject(fireBall);
         }
         
         Actor explosion = getOneIntersectingObject(Explosion.class);
