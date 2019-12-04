@@ -14,6 +14,6 @@ public class DoubleCannon extends PowerUps
      */
     public void act() 
     {
-        // Add your action code here.
+        turn(1);
     }    
 }

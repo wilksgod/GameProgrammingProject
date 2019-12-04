@@ -167,5 +167,15 @@ public class MazeWorld extends SimulationWorld
         addObject(doubleCannon,getRandomNumber(10, 1239), getRandomNumber(1, 600));
         LaserBeam laser = new LaserBeam();
         addObject(laser,getRandomNumber(10, 1239), getRandomNumber(1, 600));
+        
+        
+        Bomb bomb = new Bomb();
+        addObject(bomb,getRandomNumber(10, 1239), getRandomNumber(1, 600));
+        Bomb bomb2 = new Bomb();
+        addObject(bomb2,getRandomNumber(10, 1239), getRandomNumber(1, 600));
+        Bomb bomb3 = new Bomb();
+        addObject(bomb3,getRandomNumber(10, 1239), getRandomNumber(1, 600));
+        Bomb bomb4 = new Bomb();
+        addObject(bomb4,getRandomNumber(10, 1239), getRandomNumber(1, 600));
     }
 }

@@ -23,7 +23,7 @@ public class Player1 extends Player
     
     public Player1(int health)
     {
-        timeUntilTransition = 3;
+        timeUntilTransition = 2;
         duration = 10.0;
         p1Health = health;
         MOVE_SPEED = 2;
@@ -45,14 +45,19 @@ public class Player1 extends Player
         try
         {
         
+            gameOver();
             p1Health = takeDamage(p1Health);
             shoot();
             transform();
-            gameOver();
             controlTank();
         }
         catch(Exception e)
         {
+        }
+        
+         if (p1Health <= 0)
+        {
+            setImage("brokenTank.png");
         }
         
         /*
@@ -135,10 +140,19 @@ public class Player1 extends Player
     
     public void gameOver()
     {
-            if (p1Health <= 0)
-            {
-                getSimulationWorld().transitionToWorld(new EndScreenP2Win());
-            }
+       if (p1Health <= 0)
+       {
+           if (timeUntilTransition >= 2)
+           {
+               getWorld().addObject(new Explosion(), getX(), getY());
+           }
+
+           timeUntilTransition -= getSimulationWorld().getTimeStepDuration();
+           if (timeUntilTransition < 0.0)
+           {
+                getSimulationWorld().transitionToWorld(new EndScreenP1Win());
+           }
+       }
     }
     
     public void controlTank()

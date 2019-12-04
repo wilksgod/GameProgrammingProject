@@ -1,4 +1,3 @@
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -60,13 +59,30 @@ public abstract class Player extends Tanks
             getSimulationWorld().removeObject(cannonBall);
         }
         
-        if (health <= 0)
+        Actor bomb = getOneIntersectingObject(Bomb.class);
+        
+        if (bomb != null)
         {
+            newHealth -= 0;
+            
             Actor explosion = new Explosion();
-
             World myWorld = getWorld();
             myWorld.addObject(explosion, this.getX(), this.getY());
-            myWorld.removeObject(this);
+            getSimulationWorld().removeObject(bomb);
+        }
+        
+        Actor explosion = getOneIntersectingObject(Explosion.class);
+        
+        if (explosion != null)
+        {
+            newHealth -= 3;
+            getSimulationWorld().removeObject(explosion);
+        }
+        
+        if (health <= 0)
+        {
+            World myWorld = getWorld();
+            myWorld.addObject(explosion, this.getX(), this.getY());
         }
         
         return newHealth;

@@ -22,8 +22,11 @@ public class P1NumberOfHealth extends HP
     {
         super.act();
         List<Player1> players = getWorld().getObjects(Player1.class);
-        int hp = players.get(0).getP1Health();
-        
-        setImage(new GreenfootImage("X " + hp, 35, Color.BLACK, new Color(0,0,0,0)));
+        if (players.size() > 0)
+        {
+            int hp = players.get(0).getP1Health();
+            
+            setImage(new GreenfootImage("X " + hp, 35, Color.BLACK, new Color(0,0,0,0)));
+        }
     }    
 }

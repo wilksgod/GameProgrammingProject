@@ -22,7 +22,7 @@ public class Player2 extends Player
     {
         p2Health = health;
         duration = 20.0;
-        timeUntilTransition = 3.0;
+        timeUntilTransition = 2.0;
         MOVE_SPEED = 2;
     }
     
@@ -41,9 +41,9 @@ public class Player2 extends Player
     {
         super.act();
         try {
+            gameOver();
             shoot();
             p2Health = takeDamage(p2Health);
-            gameOver();
             transform();
             controlTank();
             revertBack();
@@ -51,6 +51,12 @@ public class Player2 extends Player
         catch (Exception e)
         {
         }
+        
+        if (p2Health <= 0)
+        {
+            setImage("brokenTank.png");
+        }
+
     }
     
     public void shoot()
@@ -90,18 +96,25 @@ public class Player2 extends Player
     
     public void gameOver()
     {
-        if (getP2Health() <= 0)
-        {
-            //timeUntilTransition -= getSimulationWorld().getTimeStepDuration();
-            if (timeUntilTransition < 0)
-            {
+       if (p2Health <= 0)
+       {
+           if (timeUntilTransition >= 2)
+           {
+               getWorld().addObject(new Explosion(), getX(), getY());
+           }
+
+           timeUntilTransition -= getSimulationWorld().getTimeStepDuration();
+           if (timeUntilTransition < 0.0)
+           {
                 getSimulationWorld().transitionToWorld(new EndScreenP1Win());
-            }
-        }
+           }
+       }
     }
     
     public void controlTank()
     {   
+        MOVE_SPEED = getMoveSpeed();
+        
         if (Greenfoot.isKeyDown("up"))
         {
             speed = MOVE_SPEED;

@@ -368,5 +368,12 @@ public class MazeWorldTwo extends SimulationWorld
         addObject(doubleCannon,getRandomNumber(10, 1239), getRandomNumber(1, 600));
         LaserBeam laser = new LaserBeam();
         addObject(laser,getRandomNumber(10, 1239), getRandomNumber(1, 600));
+        FireBall fireBall = new FireBall();
+        addObject(fireBall,632,102);
+        fireBall.setLocation(641,101);
+        FireBall fireBall2 = new FireBall();
+        addObject(fireBall2,813,245);
+        fireBall2.setLocation(820,243);
+        fireBall.setLocation(649,68);
     }
 }

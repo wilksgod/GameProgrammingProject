@@ -38,7 +38,7 @@ public class BeamTankP2 extends Player2
     
     public int getMoveSpeed()
     {
-        return 5;
+        return 4;
     }
 
     
