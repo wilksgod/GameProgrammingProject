@@ -150,7 +150,7 @@ public class Player1 extends Player
            timeUntilTransition -= getSimulationWorld().getTimeStepDuration();
            if (timeUntilTransition < 0.0)
            {
-                getSimulationWorld().transitionToWorld(new EndScreenP1Win());
+                getSimulationWorld().transitionToWorld(new EndScreenP2Win());
            }
        }
     }
