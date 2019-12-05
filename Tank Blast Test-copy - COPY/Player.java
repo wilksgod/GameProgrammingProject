@@ -63,9 +63,9 @@ public abstract class Player extends Tanks
         
         if (bomb != null)
         {
-            newHealth -= 0;
-            
+            newHealth -= 5;
             Actor explosion = new Explosion();
+       
             World myWorld = getWorld();
             myWorld.addObject(explosion, this.getX(), this.getY());
             getSimulationWorld().removeObject(bomb);
@@ -81,11 +81,7 @@ public abstract class Player extends Tanks
         
         Actor explosion = getOneIntersectingObject(Explosion.class);
         
-        if (explosion != null)
-        {
-            newHealth -= 3;
-            getSimulationWorld().removeObject(explosion);
-        }
+        
         
         if (health <= 0)
         {
